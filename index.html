@@ -1,0 +1,128 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script src="aframe-extras-master/dist/aframe-extras.min.js"></script>
+    <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
+  </head>
+  <body>
+
+
+    <a-scene stats> 
+
+    <a-assets>
+          <a-asset-item id="buero-obj" src="assets/buero/buero.obj"></a-asset-item>
+          <a-asset-item id="buero-mtl" src="assets/buero/buero.mtl"></a-asset-item>
+   </a-assets>
+ 
+        <!--Kamera und Bewegung-->
+        <a-entity id="cameraRig"
+        movement-controls
+        position="4.5 0 -4" trackpad-controls="enabled:false">
+
+           <a-entity id="head" camera
+          position="0.5 1.6 1"
+          look-controls="pointerLockEnabled: true">
+          </a-entity>
+         <!--Linke Hand-->
+         <a-entity teleport-controls="cameraRig: #cameraRig; button: trigger;"
+          vive-controls="hand: left"
+          oculus-touch-controls="hand: left"
+          microsoft-motion-controls="hand: left"
+          daydream-controls="left" gearvr-controls="left">
+         </a-entity>
+         <!--Rechte Hand-->
+         <a-entity teleport-controls="cameraRig: #cameraRig; button: trigger;"
+          vive-controls="hand: right"
+          microsoft-motion-controls="hand: right"
+          oculus-touch-controls="hand: right"
+          daydream-controls="right" gearvr-controls="right">
+        </a-entity>
+
+        </a-entity> 
+
+
+        <!--Skybox-->
+        <a-sky material="color:#c5e2fa"></a-sky>
+
+        <!--Büro model-->
+        <a-obj-model src="#buero-obj" mtl="#buero-mtl" ></a-obj-model>
+
+
+        <!--Licht-->
+        <a-entity light="type: ambient; color: #BBB"></a-entity>
+        <a-entity light="type: directional; color: #FFF; intensity: 0.5" position="-0.5 1 -0.88"></a-entity>
+    
+        <!--Whiteboard 1-->  
+        <a-entity visible="false" id="whiteboard1"position="3 0.8 -4">
+            <a-entity text="value:hello world;color:#002758;lineHeight:0.2" geometry="primitive:plane;width:1.2; height:1.4;" material="color:white" position="0 0.8 0.016" rotation="-8 0 0"></a-entity>
+               <a-entity geometry="primitive:box; width:1.3; height:1.5; depth:0.03" material="color:white" position="0 0.8 0" rotation="-8 0 0">
+               <a-entity geometry="primitive:box; width:1.3; height:0.01; depth:0.1" material="color:white" position="0 -0.75 0.032"></a-entity>
+           </a-entity>
+                
+               <a-entity geometry="primitive:cylinder;height:1; radius:0.02" material="color:white" position="-0.3 -0.3 0.15" rotation="-8 0 0"></a-entity>
+               <a-entity geometry="primitive:cylinder;height:1; radius:0.02" material="color:white" position="0.3 -0.3 0.15" rotation="-8 0 0"></a-entity>
+               <a-entity geometry="primitive:cylinder;height:1.3; radius:0.02" material="color:white" position="0 -0.3 -0.05" rotation="8 0 0"></a-entity>
+        </a-entity>
+
+
+    <!--Whiteboard 2-->  
+   <a-entity id="whiteboard2" position="2.65 0.8 -1.3" rotation="0 155 0" >
+       <a-entity text="value:Steuerung;color:#002758;lineHeight:0.2" geometry="primitive:plane;width:1.2; height:1.4;" material="color:white" position="0 0.8 0.016" rotation="-8 0 0"></a-entity>
+          <a-entity geometry="primitive:box; width:1.3; height:1.5; depth:0.03" material="color:white" position="0 0.8 0" rotation="-8 0 0">
+          <a-entity geometry="primitive:box; width:1.3; height:0.01; depth:0.1" material="color:white" position="0 -0.75 0.032"></a-entity>
+      </a-entity>
+           
+          <a-entity geometry="primitive:cylinder;height:1; radius:0.02" material="color:white" position="-0.3 -0.3 0.15" rotation="-8 0 0"></a-entity>
+          <a-entity geometry="primitive:cylinder;height:1; radius:0.02" material="color:white" position="0.3 -0.3 0.15" rotation="-8 0 0"></a-entity>
+          <a-entity geometry="primitive:cylinder;height:1.3; radius:0.02" material="color:white" position="0 -0.3 -0.05" rotation="8 0 0"></a-entity>
+   </a-entity>
+
+
+    <!--Whiteboard 3--> 
+   <a-entity id="whiteboard3" position="-2.8  0.8 -2.37" rotation="0 157 0">
+      <a-entity text="value:hello world;color:#002758;lineHeight:0.2" geometry="primitive:plane;width:1.2; height:1.4;" material="color:white" position="0 0.8 0.016" rotation="-8 0 0"></a-entity>
+         <a-entity geometry="primitive:box; width:1.3; height:1.5; depth:0.03" material="color:white" position="0 0.8 0" rotation="-8 0 0">
+         <a-entity geometry="primitive:box; width:1.3; height:0.01; depth:0.1" material="color:white" position="0 -0.75 0.032"></a-entity>
+     </a-entity>
+          
+         <a-entity geometry="primitive:cylinder;height:1; radius:0.02" material="color:white" position="-0.3 -0.3 0.15" rotation="-8 0 0"></a-entity>
+         <a-entity geometry="primitive:cylinder;height:1; radius:0.02" material="color:white" position="0.3 -0.3 0.15" rotation="-8 0 0"></a-entity>
+         <a-entity geometry="primitive:cylinder;height:1.3; radius:0.02" material="color:white" position="0 -0.3 -0.05" rotation="8 0 0"></a-entity>
+  </a-entity>
+
+
+      <!--Whiteboard 4--> 
+      <a-entity id="whiteboard4" position="-6.3 0.8 -5.55" rotation="0 92 0">
+        <a-entity text="value:hello world;color:#002758;lineHeight:0.2" geometry="primitive:plane;width:1.2; height:1.4;" material="color:white" position="0 0.8 0.016" rotation="-8 0 0"></a-entity>
+           <a-entity geometry="primitive:box; width:1.3; height:1.5; depth:0.03" material="color:white" position="0 0.8 0" rotation="-8 0 0">
+           <a-entity geometry="primitive:box; width:1.3; height:0.01; depth:0.1" material="color:white" position="0 -0.75 0.032"></a-entity>
+       </a-entity>
+            
+           <a-entity geometry="primitive:cylinder;height:1; radius:0.02" material="color:white" position="-0.3 -0.3 0.15" rotation="-8 0 0"></a-entity>
+           <a-entity geometry="primitive:cylinder;height:1; radius:0.02" material="color:white" position="0.3 -0.3 0.15" rotation="-8 0 0"></a-entity>
+           <a-entity geometry="primitive:cylinder;height:1.3; radius:0.02" material="color:white" position="0 -0.3 -0.05" rotation="8 0 0"></a-entity>
+    </a-entity>
+
+
+          <!--Whiteboard 5--> 
+          <a-entity id="whiteboard5" position="-2.8 0.8 -8.8" rotation="0 0 0">
+            <a-entity text="value:hello world;color:#002758;lineHeight:0.2" geometry="primitive:plane;width:1.2; height:1.4;" material="color:white" position="0 0.8 0.016" rotation="-8 0 0"></a-entity>
+               <a-entity geometry="primitive:box; width:1.3; height:1.5; depth:0.03" material="color:white" position="0 0.8 0" rotation="-8 0 0">
+               <a-entity geometry="primitive:box; width:1.3; height:0.01; depth:0.1" material="color:white" position="0 -0.75 0.032"></a-entity>
+           </a-entity>
+                
+               <a-entity geometry="primitive:cylinder;height:1; radius:0.02" material="color:white" position="-0.3 -0.3 0.15" rotation="-8 0 0"></a-entity>
+               <a-entity geometry="primitive:cylinder;height:1; radius:0.02" material="color:white" position="0.3 -0.3 0.15" rotation="-8 0 0"></a-entity>
+               <a-entity geometry="primitive:cylinder;height:1.3; radius:0.02" material="color:white" position="0 -0.3 -0.05" rotation="8 0 0"></a-entity>
+        </a-entity>
+
+   <!--Linie-->
+   <a-entity visible="false" position="2 0.001 -3" rotation="-90 -10 0">
+     <a-entity geometry="primitive:plane;width:1;height:0.08"  material="color:white"></a-entity>
+   </a-entity>
+
+
+      </a-scene>
+  </body>
+</html>
+
